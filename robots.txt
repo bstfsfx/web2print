@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://printflow.com/sitemap.xml

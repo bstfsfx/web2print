@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PrintFlow｜線上印刷・即時報價・輕鬆下單</title>
+  <meta name="description" content="PrintFlow 專業線上印刷平台：名片、海報、貼紙、易拉展、包裝印刷與大圖輸出，規格透明、即時報價、檔案上傳檢查，快速完成訂單。" />
+  <meta name="theme-color" content="#102b43" />
+  <meta name="color-scheme" content="light" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="PrintFlow" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:title" content="PrintFlow｜專業印刷・線上輕鬆下單" />
+  <meta property="og:description" content="從設計到出貨，我們為您的品牌加分。線上即時報價、規格自由配置、快速交付。" />
+  <meta property="og:image" content="/assets/hero-960.webp" />
+  <meta property="og:image:width" content="960" />
+  <meta property="og:image:height" content="580" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://printflow.com/" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/icon-180.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Preload the LCP hero image. The srcset/sizes here MUST match the
+       <picture> element below exactly, otherwise the browser downloads the
+       preloaded file and then re-downloads the file it actually needs. -->
+  <link rel="preload" as="image" href="/assets/hero-960.webp" type="image/webp"
+        imagesrcset="/assets/hero-480.webp 480w, /assets/hero-960.webp 960w"
+        imagesizes="100vw" fetchpriority="high" />
+
+  <style>
+    /* Critical CSS — above-the-fold styles inlined to avoid a render-blocking request. */
+    :root{--blue:#087cf5;--navy:#102b43;--ink:#22384d;--muted:#73879a;--line:#dce7ef;--soft:#eff8ff;--max:1120px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;color:var(--ink);font-family:Arial,"Noto Sans TC",sans-serif;background:#fff;-webkit-text-size-adjust:100%}
+    button,input,select{font:inherit}
+    button{border:0;cursor:pointer}
+    img{max-width:100%;height:auto}
+    .container{width:min(calc(100% - 48px),var(--max));margin:0 auto}
+    .site-header{height:76px;border-bottom:1px solid #edf1f4;background:#fff;position:sticky;top:0;z-index:10}
+    .header-inner{height:100%;display:flex;align-items:center;gap:34px}
+    .brand{display:flex;align-items:center;gap:9px;color:var(--navy);text-decoration:none;min-width:178px}
+    .brand img{width:32px;height:37px}
+    .brand strong{display:block;font-size:21px;line-height:1}
+    .brand small{display:block;color:#7b8d9d;font-size:9px;margin-top:4px}
+    .main-nav{display:flex;align-items:stretch;gap:28px;flex:1;height:100%}
+    .main-nav button{background:none;color:#354457;font-size:13px;font-weight:700;position:relative;padding:0}
+    .main-nav button.active{color:var(--blue)}
+    .main-nav button.active:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--blue);border-radius:3px 3px 0 0}
+    .header-actions{display:flex;align-items:center;gap:16px}
+    .search{height:35px;width:188px;border-radius:20px;background:#f5f8fb;display:flex;align-items:center;padding:0 12px;color:#8190a0}
+    .search input{border:0;outline:0;background:transparent;width:100%;font-size:11px}
+    .login,.cart{background:transparent;color:var(--ink);font-size:12px}
+    .cart{font-size:20px;position:relative}
+    .cart b{position:absolute;right:-8px;top:-8px;background:#f32642;color:#fff;border-radius:50%;font-size:10px;min-width:17px;height:17px;text-align:center;line-height:17px}
+    .mobile-menu{display:none;background:none;font-size:24px;color:var(--navy)}
+    .mobile-panel{display:none}
+    .hero{height:310px;background:#142f47;position:relative;color:#fff;overflow:hidden}
+    .hero-image{position:absolute;inset:0}
+    /* Reproduces the original `background-size:auto 100%; background-position:right center`
+       exactly: the photo is scaled to the hero height and anchored to the right,
+       leaving flat navy on the left where the gradient takes over. */
+    .hero-image img{position:absolute;top:0;right:0;height:100%;width:auto;max-width:none;object-fit:cover}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,30,49,.88),rgba(11,35,57,.64) 34%,rgba(9,22,34,.04) 76%);z-index:1}
+    .hero-content{position:relative;z-index:2;padding-top:48px}
+    .eyebrow,.kicker{color:#65aaf6;font-size:10px;font-weight:800;letter-spacing:1.7px;margin:0 0 9px}
+    .hero h1{font-size:clamp(32px,4.6vw,50px);line-height:1.15;margin:0;letter-spacing:1px}
+    .hero p{font-size:18px;color:#ebf5ff;margin:12px 0 17px}
+    .hero-features{display:flex;gap:20px;flex-wrap:wrap}
+    .hero-features span{display:flex;align-items:center;gap:7px;font-size:12px}
+    .hero-features i{font-style:normal;display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#087cf5bb;border:1px solid #99ccff66}
+    .primary{margin-top:18px;background:var(--blue);color:#fff;padding:12px 27px;border-radius:24px;font-weight:800}
+  </style>
+  <link rel="stylesheet" href="/assets/app.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至主要內容</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <img src="/assets/logo.svg" alt="PrintFlow logo" width="32" height="37" decoding="async" />
+        <span><strong>PrintFlow</strong><small>Online Printing Made Easy</small></span>
+      </a>
+      <nav class="main-nav" aria-label="主要導覽">
+        <button class="active" data-nav="首頁">首頁</button>
+        <button data-nav="產品分類">產品分類</button>
+        <button data-nav="報價計算">報價計算</button>
+        <button data-nav="關於我們">關於我們</button>
+        <button data-nav="幫助中心">幫助中心</button>
+      </nav>
+      <div class="header-actions">
+        <form class="search" id="searchForm" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" name="q" type="search" placeholder="搜尋商品、關鍵字..." aria-label="搜尋商品" />
+        </form>
+        <button class="login" id="loginBtn">♙ 登入／註冊</button>
+        <button class="cart" id="cartBtn" aria-label="購物車">
+          🛒<b id="cartCount" aria-live="polite" aria-label="購物車商品數量">0</b>
+        </button>
+      </div>
+      <button class="mobile-menu" id="mobileMenu" aria-label="開啟選單" aria-expanded="false" aria-controls="mobilePanel">☰</button>
+    </div>
+    <div class="mobile-panel" id="mobilePanel">
+      <form class="search" id="mobileSearchForm" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input type="search" placeholder="搜尋商品、關鍵字..." aria-label="搜尋商品" />
+      </form>
+      <button data-nav="首頁">首頁</button>
+      <button data-nav="產品分類">產品分類</button>
+      <button data-nav="報價計算">報價計算</button>
+      <button data-nav="關於我們">關於我們</button>
+      <button data-nav="幫助中心">幫助中心</button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-image">
+        <picture>
+          <source srcset="/assets/hero-480.webp 480w, /assets/hero-960.webp 960w" sizes="100vw" type="image/webp" />
+          <img src="/assets/hero-480.jpg" alt="數位印刷機正在輸出彩色印刷品" width="480" height="290"
+               fetchpriority="high" decoding="async" />
+        </picture>
+      </div>
+      <div class="container hero-content">
+        <p class="eyebrow">PRINT WITH CONFIDENCE</p>
+        <h1>專業印刷・線上輕鬆下單</h1>
+        <p>從設計到出貨，我們為您的品牌加分</p>
+        <div class="hero-features">
+          <span><i aria-hidden="true">♧</i>多樣化產品</span>
+          <span><i aria-hidden="true">▤</i>即時報價</span>
+          <span><i aria-hidden="true">♧</i>高品質印刷</span>
+          <span><i aria-hidden="true">◌</i>快速交付</span>
+        </div>
+        <button class="primary" id="heroCta">開始選購　›</button>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-head">
+          <h2>熱門印刷產品</h2>
+          <p>多種印刷選擇，滿足您的各種需求</p>
+        </div>
+        <div class="products">
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-namecard-176.webp 176w, /assets/product-namecard-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-namecard-176.jpg" alt="印刷名片" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="名片">名片</button>
+          </article>
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-poster-176.webp 176w, /assets/product-poster-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-poster-176.jpg" alt="海報與宣傳單" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="海報／宣傳單">海報／宣傳單</button>
+          </article>
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-sticker-176.webp 176w, /assets/product-sticker-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-sticker-176.jpg" alt="品牌貼紙" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="貼紙">貼紙</button>
+          </article>
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-banner-176.webp 176w, /assets/product-banner-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-banner-176.jpg" alt="布條與易拉展" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="布條／易拉展">布條／易拉展</button>
+          </article>
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-packaging-176.webp 176w, /assets/product-packaging-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-packaging-176.jpg" alt="包裝印刷紙盒" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="包裝印刷">包裝印刷</button>
+          </article>
+          <article class="product-card">
+            <picture>
+              <source srcset="/assets/product-largeprint-176.webp 176w, /assets/product-largeprint-352.webp 352w" sizes="(max-width:560px) 45vw, (max-width:850px) 30vw, 176px" type="image/webp" />
+              <img src="/assets/product-largeprint-176.jpg" alt="大圖輸出" width="176" height="143" loading="lazy" decoding="async" />
+            </picture>
+            <button data-category="大圖輸出">大圖輸出</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <div class="container benefit-grid">
+        <div class="benefit"><i aria-hidden="true">▣</i><span><strong>線上即時報價</strong><small>快速計算・透明價格</small></span></div>
+        <div class="benefit"><i aria-hidden="true">⚙</i><span><strong>規格自由配置</strong><small>尺寸・材質・加工任你選</small></span></div>
+        <div class="benefit"><i aria-hidden="true">↥</i><span><strong>檔案上傳檢查</strong><small>支援多種檔案格式</small></span></div>
+        <div class="benefit"><i aria-hidden="true">✓</i><span><strong>安全付款</strong><small>多種付款方式・安心有保障</small></span></div>
+        <div class="benefit"><i aria-hidden="true">▣</i><span><strong>訂單追蹤</strong><small>隨時掌握生產進度</small></span></div>
+      </div>
+    </section>
+
+    <section class="section" id="configurator">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">MAKE IT YOURS</p>
+            <h2>選擇您的產品</h2>
+          </div>
+          <p>規格透明，選好就能立即估價</p>
+        </div>
+        <div class="config-tabs" role="tablist" aria-label="產品類型">
+          <button class="active" data-tab="名片" role="tab" aria-selected="true">名片</button>
+          <button data-tab="海報／宣傳單" role="tab" aria-selected="false">海報／宣傳單</button>
+          <button data-tab="貼紙" role="tab" aria-selected="false">貼紙</button>
+          <button data-tab="布條／易拉展" role="tab" aria-selected="false">布條／易拉展</button>
+          <button data-tab="包裝印刷" role="tab" aria-selected="false">包裝印刷</button>
+          <button data-tab="大圖輸出" role="tab" aria-selected="false">大圖輸出</button>
+        </div>
+        <div class="config">
+          <div class="overview">
+            <div class="preview">
+              <picture>
+                <source srcset="/assets/preview-220.webp 220w, /assets/preview-440.webp 440w" sizes="220px" type="image/webp" />
+                <img src="/assets/preview-220.jpg" alt="客製化名片實物照片" width="220" height="215" loading="lazy" decoding="async" />
+              </picture>
+            </div>
+            <div class="summary">
+              <p class="summary-label" id="productLabel">名片 PRODUCT</p>
+              <h3 id="productName">客製化名片</h3>
+              <p id="productDesc">高質感印刷｜圓潤顯色細緻</p>
+              <div class="price">NT$ <span id="price">300</span><small> 起</small></div>
+              <ul>
+                <li>多種材質</li>
+                <li>多種尺寸</li>
+                <li>可雙面印刷</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label id="sizeLabel">1　選擇尺寸</label>
+              <div class="choices" data-group="size" role="group" aria-labelledby="sizeLabel">
+                <button class="active">90 x 54 mm（標準）</button>
+                <button>90 x 50 mm</button>
+                <button>自訂尺寸</button>
+              </div>
+            </div>
+            <div class="field">
+              <label id="materialLabel">2　選擇材質</label>
+              <div class="choices" data-group="material" role="group" aria-labelledby="materialLabel">
+                <button class="active">銅版紙（亮面）</button>
+                <button>銅版紙（霧面）</button>
+                <button>象牙卡</button>
+              </div>
+            </div>
+            <div class="field">
+              <label id="quantityLabel">3　選擇數量</label>
+              <div class="choices" data-group="quantity" role="group" aria-labelledby="quantityLabel">
+                <button>100</button>
+                <button>200</button>
+                <button class="active">500</button>
+                <button>1,000</button>
+                <button>2,000</button>
+              </div>
+            </div>
+            <div class="field">
+              <label id="uploadLabel">4　上傳設計檔案</label>
+              <label class="upload" for="fileInput">
+                ☁　拖放檔案到這裡，或 <u id="uploadText">點擊上傳</u>
+              </label>
+              <input id="fileInput" type="file" accept=".pdf,.ai,.psd,.jpg,.png" hidden />
+            </div>
+            <button class="add" id="addCart">🛒　加入購物車</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section steps-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="kicker">SIMPLE ORDERING JOURNEY</p>
+            <h2>簡單 6 步驟・輕鬆完成訂單</h2>
+          </div>
+          <p>從挑選到收到，每一步都清楚掌握</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5M8 8l.7.7L10 7.4"/></svg></div>
+            <span class="step-num">1</span><strong>選擇產品</strong><small>挑選適合的印刷品項</small>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="9" cy="7" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="10" cy="17" r="2"/></svg></div>
+            <span class="step-num">2</span><strong>規格配置</strong><small>選擇尺寸、材質、數量等</small>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 18h10a4 4 0 0 0 .5-7.97A6 6 0 0 0 6.2 8.2 4 4 0 0 0 7 18Z"/><path d="M12 16V9m0 0-3 3m3-3 3 3"/></svg></div>
+            <span class="step-num">3</span><strong>上傳檔案</strong><small>確認檔案並檢查格式</small>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><rect x="8" y="6" width="8" height="3" rx="1"/><path d="M8 13h2m2 0h2m2 0h0M8 17h2m2 0h2m2 0h0"/></svg></div>
+            <span class="step-num">4</span><strong>即時報價</strong><small>系統自動計算價格</small>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 14h3"/></svg></div>
+            <span class="step-num">5</span><strong>付款下單</strong><small>選擇付款方式完成訂單</small>
+          </div>
+          <div class="step">
+            <div class="step-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 6h11v10H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+            <span class="step-num">6</span><strong>追蹤進度</strong><small>即時掌握生產與配送狀態</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container enterprise">
+        <picture>
+          <source srcset="/assets/enterprise-330.webp 330w, /assets/enterprise-660.webp 660w" sizes="330px" type="image/webp" />
+          <img src="/assets/enterprise-330.jpg" alt="企業客戶服務" width="330" height="104" loading="lazy" decoding="async" />
+        </picture>
+        <div class="enterprise-copy">
+          <p class="kicker">FOR YOUR BUSINESS</p>
+          <h3>企業客戶專屬服務</h3>
+          <p>提供企業帳戶、批量訂購、專屬價格及開立發票等服務<br />讓您的採購流程更簡單、更有效率。</p>
+          <button class="primary enterprise-cta">了解更多　›</button>
+        </div>
+        <ul>
+          <li>✓ 專屬價格方案</li>
+          <li>✓ 紙店管理系統</li>
+          <li>✓ 批量訂單管理</li>
+          <li>✓ 異業聯動服務</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top">
+          <img src="/assets/logo.svg" alt="PrintFlow logo" width="32" height="37" loading="lazy" decoding="async" />
+          <span><strong class="footer-brand">PrintFlow</strong><small>Online Printing Made Easy</small></span>
+        </a>
+        <p>讓每一次印刷，都為品牌加分。</p>
+      </div>
+      <div>
+        <h4>關於我們</h4>
+        <a href="#">品牌故事</a><br />
+        <a href="#">聯絡我們</a>
+      </div>
+      <div>
+        <h4>幫助中心</h4>
+        <a href="#">常見問題</a><br />
+        <a href="#">檔案規範</a>
+      </div>
+      <div>
+        <h4>聯絡我們</h4>
+        <p>☎ (02) 1234 5678<br />✉ service@printflow.com<br />◷ 一至五 09:00 - 18:00</p>
+      </div>
+      <div class="social" aria-label="社群媒體">
+        <a href="#" aria-label="Facebook">●</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© 2025 PrintFlow. All rights reserved.</span>
+      <span>隱私權政策　|　服務條款</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="/assets/app.js" defer></script>
+</body>
+</html>

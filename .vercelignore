@@ -1,0 +1,9 @@
+# Files that should not be uploaded to Vercel.
+# The build output (dist/) is generated on Vercel, so it is excluded.
+dist/
+.source-assets/
+.playwright-mcp/
+PrintFlow.html
+node_modules/
+.git/
+.DS_Store

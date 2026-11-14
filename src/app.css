@@ -1,0 +1,146 @@
+/* PrintFlow — below-the-fold styles.
+   Critical (above-the-fold) rules are inlined in index.html; this file is
+   cacheable across navigations and must not block first paint. */
+
+/* ---------- Sections ---------- */
+.section{padding:27px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:15px}
+.section h2{font-size:23px;margin:0;color:var(--navy)}
+.section-head p{margin:0;color:#8a9aa9;font-size:11px}
+
+/* Skip link — hidden until focused */
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--blue);color:#fff;padding:10px 16px;z-index:100;border-radius:0 0 6px 0}
+.skip-link:focus{left:0}
+
+/* ---------- Product grid ---------- */
+.products{display:grid;grid-template-columns:repeat(6,1fr);gap:11px}
+.product-card{border:1px solid #e4ebf0;border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 3px 12px #1c40540b}
+.product-card img{width:100%;height:112px;display:block;object-fit:cover}
+.product-card button{width:100%;height:40px;background:#fff;text-align:left;padding:0 12px;font-weight:700;color:#25394c;position:relative}
+.product-card button:after{content:"›";position:absolute;right:11px;color:#516b7d;font-size:19px}
+.product-card button:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
+
+/* ---------- Benefits ---------- */
+.benefits{background:#f1f9ff}
+.benefit-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.benefit{display:flex;align-items:center;gap:10px;padding:8px 18px;border-right:1px solid #d5e2eb}
+.benefit:first-child{padding-left:0}
+.benefit:last-child{border:0}
+.benefit i{width:42px;height:42px;border-radius:50%;background:#e0f1ff;color:var(--blue);display:grid;place-items:center;font-style:normal;font-size:21px}
+.benefit strong{font-size:12px;display:block}
+.benefit small{display:block;color:#8394a3;font-size:9px;margin-top:4px}
+
+/* ---------- Configurator ---------- */
+.config-tabs{display:flex;gap:6px;margin-bottom:10px;overflow:auto;scrollbar-width:none}
+.config-tabs::-webkit-scrollbar{display:none}
+.config-tabs button{background:#f7fafc;color:#65798b;padding:9px 17px;border-radius:20px;font-size:11px;white-space:nowrap}
+.config-tabs button.active{background:var(--blue);color:#fff}
+.config{display:grid;grid-template-columns:1fr 1.15fr;border:1px solid #dbe5eb;border-radius:7px;overflow:hidden}
+.overview{display:flex;gap:19px;padding:27px}
+.preview{width:220px;height:215px;flex:0 0 auto;background:#f3f6f8;display:grid;place-items:center}
+.preview img{width:100%;height:100%;object-fit:contain}
+.summary-label{font-size:9px;color:var(--blue);font-weight:800;letter-spacing:1px;margin:4px 0 9px}
+.summary h3{margin:0;color:var(--navy);font-size:20px}
+.summary p{font-size:11px;color:#8293a1;margin:8px 0}
+.price{color:var(--blue);font-size:20px;font-weight:900;margin:16px 0}
+.summary ul{list-style:none;padding:0;margin:0;color:#75899a;font-size:11px;line-height:2}
+.summary li:before{content:"♧";color:var(--blue);margin-right:8px}
+.fields{border-left:1px solid #e7edf1;padding:19px 25px}
+.field{margin-bottom:13px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:7px}
+.choices{display:flex;gap:6px;flex-wrap:wrap}
+.choices button{padding:7px 11px;border:1px solid #e6ebef;border-radius:14px;background:#fff;color:#6f7f8d;font-size:10px}
+.choices button.active{color:var(--blue);border-color:#9fcafa;background:#f1f8ff}
+.upload{height:50px;border:1px dashed #bbcbd7;background:#f7fbfe;display:grid;place-items:center;color:#71899b;font-size:10px;border-radius:4px;cursor:pointer}
+.add{width:100%;height:37px;background:var(--blue);color:#fff;border-radius:5px;font-weight:800;margin-top:12px}
+
+/* ---------- Steps ---------- */
+.steps-section{background:#f2faff}
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:24px}
+.step{text-align:center;position:relative}
+.step-icon{width:45px;height:45px;border-radius:50%;background:#e0f1ff;color:var(--blue);display:grid;place-items:center;margin:0 auto 7px}
+.step-icon svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.step-num{display:block;color:var(--blue);font-size:18px;font-weight:900}
+.step strong{display:block;font-size:12px;margin-top:3px}
+.step small{display:block;color:#8495a2;font-size:9px;margin-top:5px}
+.step:not(:last-child):after{content:"›";position:absolute;right:-20px;top:19px;color:#8eb5d1;font-size:24px}
+
+/* ---------- Enterprise ---------- */
+.enterprise{display:grid;grid-template-columns:330px 1fr 210px;align-items:center;gap:24px;padding:0;background:#f5fbff;overflow:hidden;border-radius:8px}
+.enterprise img{width:100%;height:106px;object-fit:cover}
+.enterprise-copy .kicker{margin:0 0 3px}
+.enterprise h3{margin:0;font-size:17px;color:var(--navy)}
+.enterprise p{font-size:10px;color:#80909d;line-height:1.7;margin:6px 0}
+.enterprise-cta{margin:0;padding:8px 18px;font-size:11px}
+.enterprise ul{border-left:1px solid #d6e3ec;list-style:none;margin:0;padding-left:18px;color:#718596;font-size:10px;line-height:1.9}
+
+/* ---------- Footer ---------- */
+.footer{background:var(--navy);color:#a8bed0;padding:24px 0 10px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.6fr auto;gap:25px}
+.footer h4{color:#fff;margin:0 0 9px;font-size:12px}
+.footer p,.footer a{font-size:10px;color:#a8bed0;line-height:1.8;text-decoration:none}
+.footer-brand{color:#fff}
+.social{display:flex;gap:10px;align-items:center}
+.social a{color:#a8bed0;font-size:12px}
+.footer-bottom{border-top:1px solid #ffffff25;margin-top:20px;padding-top:9px;font-size:9px;display:flex;justify-content:space-between}
+
+/* ---------- Toast ---------- */
+.toast{position:fixed;right:20px;bottom:20px;background:var(--navy);color:#fff;padding:12px 17px;border-radius:6px;font-size:12px;box-shadow:0 10px 30px #0003;display:none;z-index:20}
+
+/* ---------- Render performance ----------
+   content-visibility lets the browser skip layout/paint for off-screen
+   sections. The intrinsic-size hint prevents scrollbar jitter. */
+.benefits,.steps-section,.section:not(:first-of-type){content-visibility:auto;contain-intrinsic-size:auto 400px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ---------- Responsive ---------- */
+@media(max-width:850px){
+  .main-nav,.header-actions{display:none}
+  .mobile-menu{display:block}
+  .header-inner{justify-content:space-between}
+  .mobile-panel{position:absolute;top:76px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:14px 24px;box-shadow:0 10px 22px #102b4318}
+  .mobile-panel.show{display:block}
+  .mobile-panel button{display:block;width:100%;text-align:left;padding:10px;border-radius:5px;background:#f5f8fb;margin:4px 0}
+  .products{grid-template-columns:repeat(3,1fr)}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .benefit{border:0}
+  .config{grid-template-columns:1fr}
+  .fields{border-left:0;border-top:1px solid #e7edf1}
+  .enterprise{grid-template-columns:1fr}
+  .enterprise img{height:150px}
+  .enterprise-copy,.enterprise ul{padding:0 20px 16px}
+  .enterprise ul{border-left:0}
+  .footer-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{gap:12px}
+  .step:not(:last-child):after{right:-11px}
+  .preview{width:170px}
+}
+
+@media(max-width:560px){
+  .container{width:min(calc(100% - 30px),var(--max))}
+  .hero{height:410px}
+  /* Reproduces the original `background-size:auto 100%; background-position:68% center`.
+     With background-position, the offset is 68% of (container - image) overflow.
+     The image is scaled to the hero height, so as a fraction of the image's own
+     width that works out to (container/image - 1) * 0.68. For the 464x280
+     original that is -29% of the image width. */
+  .hero-image img{right:auto;left:0;transform:translateX(-29%);opacity:.72}
+  .hero-content{padding-top:38px}
+  .hero h1{font-size:34px;max-width:350px}
+  .products{grid-template-columns:repeat(2,1fr)}
+  .benefit-grid{grid-template-columns:1fr}
+  .benefit{padding:9px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:7px}
+  .overview{display:block;padding:16px}
+  .preview{width:100%;height:190px}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:25px}
+  .step:not(:last-child):after{display:none}
+  .enterprise-copy h3{font-size:16px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-bottom{display:block;line-height:1.8}
+}
