@@ -99,6 +99,15 @@ function fmt(n) {
 }
 
 async function main() {
+  const originalPath = join(root, "PrintFlow.html");
+  if (!existsSync(originalPath)) {
+    console.log(
+      "\n  PrintFlow.html is not present (it is excluded from the Vercel\n" +
+        "  upload), so the before/after comparison cannot run here.\n",
+    );
+    return;
+  }
+
   const orig = serveOriginal(4501);
   const dist = serveDist(4502);
   await sleep(300);

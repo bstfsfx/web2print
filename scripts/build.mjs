@@ -173,7 +173,11 @@ function main() {
   });
 
   /* ---------------- report ---------------- */
-  const origHtml = bytes(join(root, "PrintFlow.html"));
+  // The original single-file build is a reference for the report only. It is
+  // excluded from the Vercel upload (.vercelignore), so it may be absent —
+  // the build must never depend on it.
+  const originalPath = join(root, "PrintFlow.html");
+  const hasOriginal = existsSync(originalPath);
 
   const distTotal = dirSize(DIST);
   const htmlOut = bytes(join(DIST, "index.html"));
@@ -209,13 +213,22 @@ function main() {
   console.log("  " + "-".repeat(52));
   console.log(`  dist/ total: ${human(distTotal)}\n`);
 
-  console.log("  vs. original single-file build:");
-  console.log(`    original: ${human(origHtml)}  (1 request, inline base64 images)`);
-  console.log(
-    `    now:      ${human(htmlOut + cssOut + jsOut)} text + ~${human(
-      firstVisitImageBytes,
-    )} images (2 requests, separately cacheable)\n`,
-  );
+  if (hasOriginal) {
+    const origHtml = bytes(originalPath);
+    console.log("  vs. original single-file build:");
+    console.log(`    original: ${human(origHtml)}  (1 request, inline base64 images)`);
+    console.log(
+      `    now:      ${human(htmlOut + cssOut + jsOut)} text + ~${human(
+        firstVisitImageBytes,
+      )} images (2 requests, separately cacheable)\n`,
+    );
+  } else {
+    console.log(
+      `    text: ${human(htmlOut + cssOut + jsOut)} + ~${human(
+        firstVisitImageBytes,
+      )} images (separately cacheable)\n`,
+    );
+  }
   console.log(
     `  asset filenames are content-hashed, so they can be served with\n` +
       `  Cache-Control: immutable without ever serving a stale copy.\n`,
